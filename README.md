@@ -1,7 +1,6 @@
 # santa
 
-- cli to download aoc inputs for those in a hurry or just lazy.
-- you can specity output file name in the cli
+A cli to download aoc inputs for those in a hurry or just lazy.
 
 ### 🚀 Get started:
 
