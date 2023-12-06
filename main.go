@@ -5,20 +5,20 @@ import (
 	"io"
 	"net/http"
 	"net/http/cookiejar"
-	"os"
 	"time"
 )
 
 const (
-	INPUT_FILE = "input.txt"
+	USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 )
 
 func main() {
 	// request data
-	day := 1
-	url := fmt.Sprintf("https://adventofcode.com/2023/day/%d/input", day)
+	day := 6
+	year := 2023
+	url := fmt.Sprintf("https://adventofcode.com/%d/day/%d/input", year, day)
 	headers := map[string]string{
-		"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
+		"User-Agent": USER_AGENT,
 	}
 
 	// new request
@@ -53,27 +53,12 @@ func main() {
 		panic(err)
 	}
 	defer response.Body.Close()
-	fmt.Printf("status code : %v", response.StatusCode)
 
 	// read & save content
 	body, err := io.ReadAll(response.Body)
 	if err != nil {
 		panic(err)
 	}
-	save(string(body))
-}
 
-func save(content string) error {
-	f, err := os.Create(INPUT_FILE)
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
-
-	_, err = f.WriteString(content)
-	if err != nil {
-		panic(err)
-	}
-
-	return nil
+	fmt.Println(string(body))
 }
