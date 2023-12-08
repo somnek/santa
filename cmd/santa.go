@@ -15,9 +15,8 @@ const (
 	USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 )
 
-func downloadInput(cmd *cobra.Command, day string) {
-
-	// request data
+func download(cmd *cobra.Command, day string) {
+	// args
 	session := viper.GetString("aoc_session")
 	year := 2023
 	url := fmt.Sprintf("https://adventofcode.com/%d/day/%s/input", year, day)
@@ -25,6 +24,11 @@ func downloadInput(cmd *cobra.Command, day string) {
 		"User-Agent": USER_AGENT,
 	}
 
+	_, body := request(url, session, headers)
+	fmt.Print(string(body))
+}
+
+func request(url, session string, headers map[string]string) (int, []byte) {
 	// new request
 	r, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -64,5 +68,6 @@ func downloadInput(cmd *cobra.Command, day string) {
 		panic(err)
 	}
 
-	fmt.Println(string(body))
+	return response.StatusCode, body
+
 }

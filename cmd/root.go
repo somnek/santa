@@ -41,7 +41,7 @@ var (
 		Args:  cobra.ExactArgs(1),
 		PreRun: func(cmd *cobra.Command, args []string) {
 			if viper.GetString("aoc_session") == "" {
-				fmt.Println("\nNo session token set. Run `santa session [token]` to set it.")
+				fmt.Println("\nNo session token set. Run `santa -s [session]` to set it.")
 				os.Exit(1)
 			}
 		},
@@ -51,7 +51,7 @@ var (
 				fmt.Println("\nDay must be a number.")
 				os.Exit(1)
 			}
-			downloadInput(cmd, day)
+			download(cmd, day)
 		},
 	}
 
