@@ -15,10 +15,9 @@ const (
 	USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"
 )
 
-func downloadInput(cmd *cobra.Command, args []string) {
+func downloadInput(cmd *cobra.Command, day string) {
 
 	// request data
-	day := args[0]
 	session := viper.GetString("aoc_session")
 	year := 2023
 	url := fmt.Sprintf("https://adventofcode.com/%d/day/%s/input", year, day)

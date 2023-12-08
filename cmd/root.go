@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
 
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
@@ -45,7 +46,12 @@ var (
 			}
 		},
 		Run: func(cmd *cobra.Command, args []string) {
-			downloadInput(cmd, args)
+			day := args[0]
+			if _, err := strconv.Atoi(day); err != nil {
+				fmt.Println("\nDay must be a number.")
+				os.Exit(1)
+			}
+			downloadInput(cmd, day)
 		},
 	}
 
