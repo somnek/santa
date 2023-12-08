@@ -4,8 +4,6 @@ A cli to download aoc inputs for those in a hurry or just lazy.
 
 ### 🚀 Get started:
 
----
-
 1. Retrieve your session token from AoC's cookies:
 
    - Open AoC website.
@@ -27,8 +25,6 @@ A cli to download aoc inputs for those in a hurry or just lazy.
 
 ### Example:
 
----
-
 To set the session:
 
 ```bash
@@ -42,8 +38,6 @@ santa day 1 > input.txt
 ```
 
 ### Installation
-
----
 
 You can install the appropriate binary from the [releases page](https://github.com/somnek/santa/releases).
 
