@@ -2,6 +2,14 @@
 
 A cli to download aoc inputs for those in a hurry or just lazy.
 
+### Installation
+
+You can install the appropriate binary from the [releases page](https://github.com/somnek/santa/releases).
+
+#### Note:
+
+If you're on macOS, you may need to run `xattr -c ./nvim-macos.tar.gz` to (to avoid "unknown developer" warning)
+
 ### 🚀 Get started:
 
 1. Retrieve your session token from AoC's cookies:
@@ -37,10 +45,3 @@ To download input for day 1 & save it to `input.txt`:
 santa day 1 > input.txt
 ```
 
-### Installation
-
-You can install the appropriate binary from the [releases page](https://github.com/somnek/santa/releases).
-
-#### Note:
-
-If you're on macOS, you may need to run `xattr -c ./nvim-macos.tar.gz` to (to avoid "unknown developer" warning)
