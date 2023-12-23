@@ -18,7 +18,8 @@ const (
 func download(cmd *cobra.Command, day string) {
 	// args
 	session := viper.GetString("aoc_session")
-	year := 2023
+	// get current year
+	year := time.Now().Year()
 	url := fmt.Sprintf("https://adventofcode.com/%d/day/%s/input", year, day)
 	headers := map[string]string{
 		"User-Agent": USER_AGENT,
